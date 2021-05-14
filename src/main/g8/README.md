@@ -9,10 +9,10 @@ Prior to executing the tests ensure you have:
  - Installed [MongoDB](https://docs.mongodb.com/manual/installation/) 
  - Installed/configured [service manager](https://github.com/hmrc/service-manager).  
 
-Run the following command to start services locally:
+Run the following commands to start services locally:
 
     docker run --rm -d --name mongo -d -p 27017:27017 mongo:3.6
-    sm --start DIRECT_DEBIT_STUBS -r --wait 100
+    sm --start IVHO -r --wait 100
     
 Using the `--wait 100` argument ensures a health check is run on all the services started as part of the profile. `100` refers to the given number of seconds to wait for services to pass health checks.    
 
@@ -26,7 +26,7 @@ The tests default to the `local` environment.  For a complete list of supported 
 #### Running the tests against a test environment
 
 To run the tests against an environment set the corresponding `host` environment property as specified under
- `<env>.host.services` in the [application.conf](/src/test/resources/application.conf). 
+ `<env>.host.services` in the [application.conf](src/test/resources/application.conf). 
  
  ### Scalafmt
  This repository uses [Scalafmt](https://scalameta.org/scalafmt/), a code formatter for Scala. The formatting rules configured for this repository are defined within [.scalafmt.conf](.scalafmt.conf).
@@ -34,7 +34,7 @@ To run the tests against an environment set the corresponding `host` environment
  To apply formatting to this repository using the configured rules in [.scalafmt.conf](.scalafmt.conf) execute:
  
  ```
- sbt scalafmtAll
+ sbt scalafmtAll scalafmtSbt
  ```
  
  To check files have been formatted as expected execute:

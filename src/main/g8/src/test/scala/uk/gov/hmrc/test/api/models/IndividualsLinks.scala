@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.api.utils
+package uk.gov.hmrc.test.api.models
 
-import org.slf4j.{Logger, LoggerFactory}
+import play.api.libs.json.{Json, OFormat}
 
-object ApiLogger {
+case class IndividualsLinks(name: String, href: String, title: String)
 
-  val log: Logger = LoggerFactory.getLogger("[API Logger]")
-
+object IndividualsLinks {
+  implicit val userJsonFormat: OFormat[IndividualsLinks] = Json.format[IndividualsLinks]
 }

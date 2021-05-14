@@ -14,12 +14,18 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.api.utils
+package uk.gov.hmrc.test.api.helpers
 
-import org.slf4j.{Logger, LoggerFactory}
+import org.scalatest.Assertions.fail
+import play.api.libs.ws.StandaloneWSRequest
+import uk.gov.hmrc.test.api.service.AuthService
 
-object ApiLogger {
+class AuthHelper {
 
-  val log: Logger = LoggerFactory.getLogger("[API Logger]")
+  val authAPI: AuthService = new AuthService
 
+  def getAuthBearerToken: String = {
+    val authServiceRequestResponse: StandaloneWSRequest#Self#Response = authAPI.postLogin
+    authServiceRequestResponse.header("Authorization").getOrElse(fail("Could not obtain auth bearer token"))
+  }
 }

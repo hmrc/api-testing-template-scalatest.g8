@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.api.utils
+package uk.gov.hmrc.test.api.models
 
-import org.slf4j.{Logger, LoggerFactory}
+import play.api.libs.json.{Json, OFormat}
 
-object ApiLogger {
+case class User(firstName: String, lastName: String, nino: String, dateOfBirth: String)
 
-  val log: Logger = LoggerFactory.getLogger("[API Logger]")
-
+object User {
+  implicit val userJsonFormat: OFormat[User] = Json.format[User]
+  val ninoUser: User                         = User("Luke", "Wood", "EG724113D", "1960-04-06")
 }
