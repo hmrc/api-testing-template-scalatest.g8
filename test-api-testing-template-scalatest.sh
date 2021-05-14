@@ -107,10 +107,10 @@ run_test() {
 local_tear_down() {
   print "INFO: Tearing down local environment"
   print "INFO: Stopping SM profile"
-#  sm --stop IVHO
+  sm --stop IVHO
 
   print "INFO: Stopping Mongo container"
-#  docker stop mongo
+  docker stop mongo
 }
 
 if [ "$TEST_ENVIRONMENT" = "local" ]; then
