@@ -36,10 +36,11 @@ This will prompt you for:
 
 To execute the example tests, follow the steps in the project README.md
 
-### A Note on the Example Feature file
-The example tests provided in this template are quite limited in what they do. They make some simple requests to show 
-how to quickly set up and run tests using the api testing template. These tests depend on the service `DIRECT_DEBIT_STUBS` 
-being available.
+### A Note on the ExampleSpec file
+The example provided within this template demonstrates a scenario which:
+* Makes a request to the `AUTH_LOGIN_STUB` stub in order to generate and obtain an auth bearer token
+* Uses the auth bearer token to make a `POST` request to the `MATCHING_STUB` stub in order to set up test data
+* Uses the auth bearer token to make a `GET` request to the `MATCHING_STUB` stub and assert that we can retrieve the record by its MatchId
 
 ## Development
 To contribute to the api-testing-template-scalatest.g8 you'll need to test your changes locally before raising a PR (see below).

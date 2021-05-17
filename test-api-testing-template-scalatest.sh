@@ -57,7 +57,7 @@ local_setup() {
   fi
 
   print "INFO: Starting SM profile"
-  sm --start DIRECT_DEBIT_STUBS -r --wait 100
+  sm --start IVHO -r --wait 100
 }
 
 #Creates a sandbox folder to generate test repository
@@ -99,7 +99,7 @@ run_test() {
   sbt scalafmtCheckAll scalafmtSbtCheck
 
   print "INFO: Test 1 :: STARTING: $REPO_NAME tests"
-  sbt "testOnly uk.gov.hmrc.test.api.*"
+  sbt "testOnly uk.gov.hmrc.test.api.specs.*"
 
   print "INFO: Test 1 :: COMPLETED: $REPO_NAME tests"
 }
@@ -107,7 +107,7 @@ run_test() {
 local_tear_down() {
   print "INFO: Tearing down local environment"
   print "INFO: Stopping SM profile"
-  sm --stop DIRECT_DEBIT_STUBS
+  sm --stop IVHO
 
   print "INFO: Stopping Mongo container"
   docker stop mongo

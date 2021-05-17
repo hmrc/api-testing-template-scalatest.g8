@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,37 +16,26 @@
 
 package uk.gov.hmrc.test.api.specs
 
+import uk.gov.hmrc.test.api.models.User
+import uk.gov.hmrc.test.api.models.User._
+
 class ExampleSpec extends BaseSpec {
 
-  Feature("Example") {
+  Feature("Example of using the Individuals Matching API") {
 
-    Scenario("Retrieve customers contact information") {
+    Scenario("Get an individuals details by MatchId") {
 
-      When("a request is made to get customer contact information")
-      val response = exampleService.getInformation(validRegime, validIdType, validId)
+      Given("There is an existing individual with a MatchId")
+      val authBearerToken: String    = authHelper.getAuthBearerToken
+      val individualsMatchId: String = testDataHelper.createAnIndividual(authBearerToken, ninoUser)
 
-      Then("the response code should be 200")
-      response.status should be(200)
-    }
+      When("I use that MatchId to retrieve the same individuals details")
+      val actualUser: User =
+        individualsMatchingHelper.getIndividualByMatchId(authBearerToken, individualsMatchId)
 
-    Scenario("Unable to retrieve customer contact information when providing invalid information") {
-
-      When("an invalid request is made to get customer contact information")
-      val response = exampleService.getInformation(validRegime, validIdType, invalidId)
-
-      Then("the response code should be 400")
-      response.status should be(400)
-
-      And("I am returned an invalid VRN response")
-      response.body shouldBe Some(invalidVRNResponse)
+      Then("I am returned the individuals details")
+      actualUser shouldBe ninoUser
     }
 
   }
-
-  val validRegime        = "VATC"
-  val validIdType        = "VRN"
-  val validId            = "919951000"
-  val invalidId          = "<ID>"
-  val invalidVRNResponse = "VRN contained a non digit character: <ID>"
-
 }
