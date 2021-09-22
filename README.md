@@ -26,7 +26,7 @@ You will need to have giter8 installed in order to generate a test suite from th
 
 Instructions to install giter8 can be found [here](http://www.foundweekends.org/giter8/setup.html).
 
-### Generating an API Test project from master
+### Generating an API Test project from main
 To generate a test suite, execute the following command in the parent directory of where you'd like your API Test project created:
     
     g8 hmrc/api-testing-template-scalatest.g8
@@ -62,7 +62,7 @@ output to ensure that the tests ran successfully.
 
 #### Testing in CI
 In CI, [./test-api-testing-template-scalatest.sh](test-api-testing-template-scalatest.sh) is used to test the 
-api-testing-template-scalatest.g8 template in a pipeline via a PR builder before merging changes to master. 
+api-testing-template-scalatest.g8 template in a pipeline via a PR builder before merging changes to main. 
 
 
 ### Scalafmt
