@@ -1,5 +1,4 @@
 lazy val testSuite = (project in file("."))
-  .enablePlugins(SbtAutoBuildPlugin)
   .disablePlugins(JUnitXmlReportPlugin) //Required to prevent https://github.com/scalatest/scalatest/issues/1427
   .settings(
     name := "$name$",
