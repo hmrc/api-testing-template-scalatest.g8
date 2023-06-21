@@ -57,7 +57,7 @@ local_setup() {
   fi
 
   print "INFO: Starting SM profile"
-  sm2 --start IVHO
+  sm --start IVHO -r --wait 100
 }
 
 #Creates a sandbox folder to generate test repository
@@ -109,7 +109,7 @@ run_test() {
 local_tear_down() {
   print "INFO: Tearing down local environment"
   print "INFO: Stopping SM profile"
-  sm2 --stop IVHO
+  sm --stop IVHO
 
   print "INFO: Stopping Mongo container"
   docker stop mongo
