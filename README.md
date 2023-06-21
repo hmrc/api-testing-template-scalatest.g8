@@ -7,7 +7,6 @@ The api-testing-template-scalatest.g8 is developed and tested using:
 * Java 1.8
 * Scala 2.12.11
 * sbt 1.3.12
-* giter8 0.11.0-M3
 * Scalafmt 2.7.1
 
 It supports API testing using ScalaTest as the test execution framework.
@@ -23,10 +22,7 @@ If you'd like to contribute we welcome you to raise a PR or issue against the pr
 > The below instructions are only to create a repository locally.
 
 You **DO NOT** need to clone this project to generate an API Test project from the template. You simply need to have
-giter8 installed, and run the `g8` command below.
-
-### Install giter8 CLI 
-Instructions to install giter8 can be found in the official [setup page](http://www.foundweekends.org/giter8/setup.html).
+sbt installed, and run the `sbt new` command below.
 
 ### Generating an API Test project from main
 To generate a test suite, execute the following command in the parent directory of where you'd like your API Test project created:
