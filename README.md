@@ -31,7 +31,7 @@ Instructions to install giter8 can be found in the official [setup page](http://
 ### Generating an API Test project from main
 To generate a test suite, execute the following command in the parent directory of where you'd like your API Test project created:
     
-    g8 hmrc/api-testing-template-scalatest.g8
+    sbt new hmrc/api-testing-template-scalatest.g8
 
 This will prompt you for:
 - **name** -> The name of the api test repository.  I.e. my-digital-service-api-tests
@@ -61,7 +61,7 @@ To contribute to the api-testing-template-scalatest.g8 you'll need to test your 
 ### Generating an API Test project from you local changes
 To create a test project from your local changes, execute the following command from the parent directory of your local copy of the template:
 
-    g8 file://api-testing-template-scalatest.g8/ --name=my-test-project
+    sbt new file://api-testing-template-scalatest.g8/ --name=my-test-project
 
 This will create a new API test project in a folder named `my-test-project/`.  
  
