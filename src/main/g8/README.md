@@ -1,32 +1,34 @@
-**This is a template README.md.  Be sure to update this with project specific content that describes your api test project.**
+**This is the template README. Please update this with project specific content.**
 
 # $name$
-API test suite for the `<digital service name>` using ScalaTest and [play-ws](https://github.com/playframework/play-ws) client.  
 
-## Running the tests
+<SERVICE_NAME> API tests.
 
-Prior to executing the tests ensure you have:
- - Installed [MongoDB](https://docs.mongodb.com/manual/installation/) 
- - Installed/configured [service manager](https://github.com/hmrc/service-manager).  
+## Pre-requisites
 
-Run the following commands to start services locally:
+### Services
 
-    docker run --rm -d -p 27017:27017 --name mongo percona/percona-server-mongodb:5.0
-    sm --start IVHO -r --wait 100
-    
-Using the `--wait 100` argument ensures a health check is run on all the services started as part of the profile. `100` refers to the given number of seconds to wait for services to pass health checks.    
+Start Mongo Docker container as follows:
 
-Then execute the `run_tests.sh` script:
+```bash
+docker run --rm -d -p 27017:27017 --name mongo percona/percona-server-mongodb:5.0
+```
 
-`./run_tests.sh <environment>`
+Start `<SERVICE_MANAGER_PROFILE>` services as follows:
 
-The tests default to the `local` environment.  For a complete list of supported param values, see:
- - `src/test/resources/application.conf` for **environment** 
- 
-#### Running the tests against a test environment
+```bash
+sm2 --start <SERVICE_MANAGER_PROFILE>
+```
 
-To run the tests against an environment set the corresponding `host` environment property as specified under
- `<env>.host.services` in the [application.conf](src/test/resources/application.conf). 
+## Tests
+
+Run tests as follows:
+
+* Argument `<environment>` must be `local`, `dev`, `qa` or `staging`.
+
+```bash
+./run-tests.sh <environment>
+```
 
 ## Scalafmt
 

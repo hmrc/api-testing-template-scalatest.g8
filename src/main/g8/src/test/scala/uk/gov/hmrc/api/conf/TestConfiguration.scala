@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.api.conf
+package uk.gov.hmrc.api.conf
 
 import com.typesafe.config.{Config, ConfigFactory}
 
 object TestConfiguration {
+
   val config: Config        = ConfigFactory.load()
   val env: String           = config.getString("environment")
   val defaultConfig: Config = config.getConfig("local")
@@ -37,4 +38,5 @@ object TestConfiguration {
   def servicePort(serviceName: String): String = envConfig.getString(s"services.\$serviceName.port")
 
   def serviceRoute(serviceName: String): String = envConfig.getString(s"services.\$serviceName.productionRoute")
+
 }
