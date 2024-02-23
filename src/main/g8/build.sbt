@@ -1,9 +1,8 @@
-lazy val testSuite = (project in file("."))
-  .disablePlugins(JUnitXmlReportPlugin) //Required to prevent https://github.com/scalatest/scalatest/issues/1427
+lazy val root = (project in file("."))
   .settings(
     name := "$name$",
     version := "0.1.0",
-    scalaVersion := "2.12.12",
-    scalacOptions ++= Seq("-feature"),
-    libraryDependencies ++= Dependencies.test
+    scalaVersion := "2.13.12",
+    libraryDependencies ++= Dependencies.test,
+    (Compile / compile) := ((Compile / compile) dependsOn (Compile / scalafmtSbtCheck, Compile / scalafmtCheckAll)).value
   )

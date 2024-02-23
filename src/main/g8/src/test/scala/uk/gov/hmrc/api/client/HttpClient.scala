@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.api.client
+package uk.gov.hmrc.api.client
 
 import akka.actor.ActorSystem
 import play.api.libs.ws.DefaultBodyWritables._
@@ -33,7 +33,7 @@ trait HttpClient {
     wsClient
       .url(url)
       .withHttpHeaders(headers: _*)
-      .get
+      .get()
 
   def post(url: String, bodyAsJson: String, headers: (String, String)*): Future[StandaloneWSRequest#Self#Response] =
     wsClient
@@ -45,5 +45,6 @@ trait HttpClient {
     wsClient
       .url(url)
       .withHttpHeaders(headers: _*)
-      .delete
+      .delete()
+
 }

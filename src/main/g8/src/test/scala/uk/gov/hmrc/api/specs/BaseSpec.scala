@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,10 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.api.specs
+package uk.gov.hmrc.api.specs
 
-import org.scalatest._
-import org.scalatest.concurrent.Eventually
 import org.scalatest.featurespec.AnyFeatureSpec
 import org.scalatest.matchers.should.Matchers
-import uk.gov.hmrc.test.api.helpers.{AuthHelper, IndividualsMatchingHelper, TestDataHelper}
+import org.scalatest.GivenWhenThen
 
-trait BaseSpec extends AnyFeatureSpec with GivenWhenThen with BeforeAndAfterAll with Matchers with Eventually {
-  val authHelper                = new AuthHelper
-  val testDataHelper            = new TestDataHelper
-  val individualsMatchingHelper = new IndividualsMatchingHelper
-}
+trait BaseSpec extends AnyFeatureSpec with GivenWhenThen with Matchers {}
