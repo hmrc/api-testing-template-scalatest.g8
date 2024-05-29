@@ -2,7 +2,7 @@
 
 Giter8 template for API tests at HMRC.
 
-Service teams should **NOT** use this template. Please use the [create-a-test-repository](https://build.tax.service.gov.uk/job/PlatOps/job/Tools/job/create-a-test-repository/) build job instead.
+Service teams should  **NOT** use this template. Please instead use the 'Create a repository' page via the MDTP Catalogue.
 
 ## Usage
 
