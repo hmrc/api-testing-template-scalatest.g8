@@ -18,7 +18,7 @@ This will create a new API test project in a folder named `my-test-project/`.
 A shell script is available to generate a repository from the template and ensure it compiles. Steps to run this script are documented here:
 [./test-api-testing-template-scalatest.sh](test-api-testing-template-scalatest.sh)
 
-**Note:** The script does not include any assertionsas the test repository contains no tests.
+**Note:** The script does not include any assertions as the test repository contains no tests.
 
 ### Scalafmt
 The generated template has already been formatted using scalafmt as well as containing a `.scalafmt.conf` configuration and sbt scalafmt plugin ready for teams to use.
@@ -29,7 +29,7 @@ Currently, formatting the files to include in a generated project is a manual ta
 
 Generate a new API test repository from the template as follows:
 
-* Argument <name> must be desired repository name.
+* Argument <name> must be the desired repository name.
 
 ```bash
 sbt new file://api-testing-template-scalatest.g8 --name=<name>-api-tests
